@@ -59,6 +59,20 @@
 
     }
 
+
+.gallery-scroll-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.gallery-scroll-wrapper::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.gallery-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: var(--gradient-neon);
+    border-radius: 10px;
+}
     </style>
 
 </head>
@@ -145,6 +159,7 @@ function showSlides() {
   setTimeout(showSlides, 1000); // Change every 2 seconds
 }
 </script>
+
 
 
 
