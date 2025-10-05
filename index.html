@@ -1,225 +1,139 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Joyce Antolin Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Personal Page</title>
   <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
+    :root{
+      --bg-dark:#3b2f2a; /* dark brown */
+      --bg-medium:#8b6f5a; /* muted brown */
+      --bg-light:#e9dfd3; /* beige */
+      --accent:#b89276; /* warm nude */
+      --text:#1b1412;
+      --white: #ffffff;
+      --radius:14px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
 
-    body {
-      display: flex;
-      background-color: #f5f5dc; /* beige */
-      color: #3e2723; /* dark brown */
+    html,body{
+      margin:0;
+      background: var(--bg-light);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
-    /* Sidebar Navigation */
-    nav {
-      width: 220px;
-      height: 100vh;
-      background-color: #3e2723;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 40px;
-      position: fixed;
+    header.top{
+      position:fixed;
+      left:0;
+      top:0;
+      width:100%;
+      z-index:40;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:var(--bg-dark);
+      padding:12px 28px;
+      box-sizing:border-box;
+    }
+    header.top h1{margin:0;font-size:18px;color:var(--white);letter-spacing:0.4px}
+    nav{
+      display:flex;
+      gap:16px;
+    }
+    nav a{
+      color:var(--white);
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+      padding:8px 14px;
+      border-radius:10px;
+      transition:background 0.3s;
+    }
+    nav a:hover{
+      background:var(--accent);
+      color:var(--white);
     }
 
-    nav h2 {
-      color: #f5f5dc;
-      margin-bottom: 40px;
+    main{
+      margin-top:70px;
+      padding:20px;
     }
 
-    nav a {
-      text-decoration: none;
-      color: #f5f5dc;
-      margin: 15px 0;
-      font-size: 18px;
-      transition: color 0.3s;
+    section{
+      padding:60px 20px;
+      margin-bottom:40px;
+      background:linear-gradient(180deg,var(--white), var(--bg-light));
+      border-radius:var(--radius);
+      box-shadow: 0 8px 30px rgba(25,20,18,0.12);
     }
 
-    nav a:hover {
-      color: #d7ccc8; /* lighter beige */
+    .greeting{
+      font-size:28px;font-weight:700;margin:0 0 8px;color:var(--bg-dark);
     }
+    .subtitle{font-size:15px;color:var(--bg-medium);margin:0 0 18px}
 
-    /* Page Content */
-    .content {
-      margin-left: 220px;
-      padding: 40px;
-      flex: 1;
+    .profile-card{
+      display:flex;align-items:center;gap:16px;background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.85));padding:14px;border-radius:12px;box-shadow:0 6px 20px rgba(30,20,15,0.06);
     }
-
-    section {
-      min-height: 100vh;
-      padding: 40px 20px;
-      border-bottom: 1px solid #d7ccc8;
+    .avatar{
+      width:84px;height:84px;border-radius:12px;background:linear-gradient(135deg,var(--bg-medium),var(--accent));display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:800;font-size:28px;
     }
+    .bio{max-width:58ch;color:var(--bg-dark);line-height:1.45}
 
-    h1, h2 {
-      margin-bottom: 20px;
+    .thumb-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .thumb{flex:1 1 160px;height:120px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--bg-medium));display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700}
+
+    .resume-card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 6px 18px rgba(30,20,15,0.04);margin-bottom:16px}
+    .skill{background:var(--bg-light);padding:8px 10px;border-radius:10px;font-weight:600;display:inline-block;margin:4px}
+
+    @media (max-width:900px){
+      .greeting{font-size:22px}
+      .avatar{width:64px;height:64px}
     }
-
-    /* Home Section */
-    #home {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    #home img {
-      width: 160px;
-      border-radius: 50%;
-      border: 4px solid #3e2723;
-      margin-bottom: 20px;
-    }
-
-    /* Gallery Section */
-    #gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    #gallery img {
-      width: 100%;
-      border-radius: 12px;
-      border: 2px solid #3e2723;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    #gallery img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 12px rgba(62, 39, 35, 0.3);
-    }
-
-    /* Resume Section */
-    #resume {
-      background-color: #ede0d4; /* light beige card */
-      padding: 30px;
-      border-radius: 12px;
-      max-width: 900px;
-      margin: auto;
-      box-shadow: 0 4px 10px rgba(62, 39, 35, 0.25);
-    }
-
-    #resume h2 {
-      border-bottom: 2px solid #3e2723;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-    }
-
-    #resume ul {
-      margin-left: 20px;
-      line-height: 1.8;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px;
-      margin-left: 220px;
-      background-color: #3e2723;
-      color: #f5f5dc;
-    }
-
-    /* Mobile Responsive */
-    @media(max-width: 768px) {
-      nav {
-        width: 100%;
-        height: auto;
-        position: relative;
-        flex-direction: row;
-        justify-content: center;
-        padding: 15px;
-      }
-
-      .content {
-        margin-left: 0;
-      }
-
-      footer {
-        margin-left: 0;
-      }
   </style>
 </head>
 <body>
+  <header class="top">
+     <h1>MY PORTFOLIO</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="antolin_resume">Resume</a>
+      <a href="galleryact.html">Gallery</a>
+    </nav>
+  </header>
 
-  <nav>
-    <h2>MyPage</h2>
-    <a href="index.html">Home</a>
-    <a href="galleryact.html">Gallery</a>
-    <a href="antolin_resume.html">Resume</a>
-  </nav>
-
-  <div class="content">
-    <!-- Home -->
+  <main>
+    <!-- HOME -->
     <section id="home">
-    <img src="ACT12_ANTOLIN/profile.jpg" alt="Profile Picture">
-    <h1>Hello, I'm Joyce Marie B. Antolin</h1>
-     <p>
-        Welcome to my personal webpage.  
-        I love creating, designing, and building digital experiences.
-      </p>
+      <p class="greeting">Hi — I'm <span style="color:var(--accent)">Joyce Marie B. Antolin</span></p>
+      <p class="subtitle">Designer • Developer • Creator</p>
+
+      <div class="profile-card">
+        <img src="ACT12_ANTOLIN/profile.jpg" width= "100" height="100">
+        <div>
+          <p class="bio">I build beautiful, usable digital experiences with a warm, understated aesthetic. I focus on clean layout, thoughtful typography, and accessible interactions.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- Gallery -->
-    <section id="gallery">
-      <h2>Gallery</h2>
-      
-      <img src="ACT12_ANTOLIN/1.jpg" alt="Gallery Image 1">
-      <img src="ACT12_ANTOLIN/2.jpg" alt="Gallery Image 2">
-      <img src="ACT12_ANTOLIN/3.jpg" alt="Gallery Image 3">
-      <img src="ACT12_ANTOLIN/4.jpg" alt="Gallery Image 4">
+   
+
+      <div class="resume-card">
+        <p style="margin:0;font-weight:700">Skills</p>
+        <div>
+          <span class="skill">HTML & CSS</span>
+          <span class="skill">JavaScript</span>
+        </div>
+      </div>
+
+      <div class="resume-card">
+        <p style="margin:0;font-weight:700">Contact</p>
+        <p style="margin:6px 0 0">Email: <a href="mailto:joycemarieantolin@gmail.com">joycemarieantolin@gmail.com</a></p>
+        <p style="margin:2px 0 0">Location: TayumAbra, Philippines</p>
+      </div>
     </section>
-
-    <!-- Resume -->
-    <section id="resume">
-      <h2>Resume</h2>
-      <h3>Education</h3>
-      <p><strong>Bachelor of Science in IT</strong> – Data Center College of the Phil. (2020-2025)</p>
-
-      <h3>Experience</h3>
-      <ul>
-        <li>Student Web Developer – DCCP </li>
-      </ul>
-
-      <h3>Skills</h3>
-      <ul>
-        <li>HTML, CSS, JavaScript</li>
-        <li>UX Design</li>
-      </ul>
-    </section>
-  </div>
-
-  <footer>
-     Social Accounts
-  <div class="socials">
-    <a href="https://www.facebook.com/joycemarieantolin" target="_blank">Facebook</a>
-    <a href="https://www.instagram.com/joyyyxm" target="_blank">Instagram</a>
-    <a href="https://github.com/joyceantolin" target="_blank">GitHub</a>
-  </div>
-    <p>&copy; 2025 My Personal Webpage </p>
-</section>
-  </footer>
-
+  </main>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
