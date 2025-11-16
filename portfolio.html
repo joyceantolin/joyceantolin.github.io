@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Joyce Marie B. Antolin</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f8f5f0;
+    color: #3b2f2f;
+  }
+
+  header {
+
+    background-color:  #4e342e;
+    padding: 15px 0;
+   
+  }
+
+  nav ul {
+    list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+ 
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: #d4b483;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover,
+  nav ul li a.active {
+    color: #fff;
+  }
+
+  h2 {
+    text-align: center;
+    color: #3b2f2f;
+    margin-top: 40px;
+  }
+
+  /* ABOUT ME SECTION */
+  .about {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* aligns photo + text vertically */
+    gap: 60px;
+    padding: 60px 40px;
+    background-color: #efe7dd;
+    border-top: 3px solid #d4b483;
+  }
+
+  .about .photo-box {
+    flex: 1;
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .about .photo-box img {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(59,47,47,0.3);
+    object-fit: cover;
+  }
+
+  .about .info {
+    flex: 2;
+    max-width: 600px;
+  }
+
+  .about h2 {
+    text-align: left;
+    margin-bottom: 15px;
+  }
+
+  .about h3 {
+    color: #3b2f2f;
+    margin-bottom: 10px;
+  }
+
+  .about p {
+    text-align: justify;
+    line-height: 1.6;
+  }
+
+  .about ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 15px;
+  }
+
+  .about ul li {
+    margin-bottom: 8px;
+  }
+
+  /* RESUME SECTION */
+  .resume {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f4ede4;
+    border-top: 3px solid #d4b483;
+  }
+
+  .resume a {
+    background-color: #3b2f2f;
+    color: #d4b483;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .resume a:hover {
+    background-color: #d4b483;
+    color: #3b2f2f;
+  }
+
+  /* WORK EXPERIENCE */
+  .work {
+    padding: 50px 20px;
+    background-color: #efe7dd;
+    border-top: 3px solid #d4b483;
+  }
+
+  .work .job {
+    background: #fff;
+    border-left: 6px solid #3b2f2f;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 700px;
+    box-shadow: 0 4px 10px rgba(59,47,47,0.2);
+    border-radius: 8px;
+  }
+
+  .work .job h4 {
+    margin: 0 0 5px;
+    color: #3b2f2f;
+  }
+
+  .work .job p {
+    margin: 5px 0;
+    color: #444;
+  }
+
+  /* PROJECT SECTION */
+  .portfolio {
+    text-align: center;
+    padding: 50px 20px;
+  }
+
+  .portfolio .project {
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(59,47,47,0.2);
+  }
+
+  .portfolio .project img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    background-color: #3b2f2f;
+    color: #d4b483;
+    padding: 15px 10px;
+  }
+
+  footer .social a {
+    color: #d4b483;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1.3em;
+  }
+
+  footer .social a:hover {
+    color: #fff;
+  }
+
+  /* Scroll-to-top button */
+  #scrollTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+    background-color: #3b2f2f;
+    color: #d4b483;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+
+  #scrollTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #scrollTopBtn:hover {
+    background-color: #d4b483;
+    color: #3b2f2f;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .about {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .about h2 {
+      text-align: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="joyceantolin.github.io">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="portfolio.html" class="active">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ABOUT ME SECTION -->
+<section class="about">
+  <div class="photo-box">
+    <img src="ACT12_ANTOLIN/resume.jpg" alt="Joyce Marie B. Antolin">
+  </div>
+  <div class="info">
+    <h2>About Me</h2>
+    <h3>Personal Information</h3>
+    <ul>
+      <li><strong>Name:</strong> Joyce Marie B. Antolin</li>
+      <li><strong>Location:</strong> Philippines</li>
+      <li><strong>Email:</strong> joycemarieantolin@gmail.com</li>
+    </ul>
+
+    <h3>Professional Background</h3>
+    <p>I am a passionate web developer and designer with a strong interest in creating clean, user-friendly, and visually appealing websites. I specialize in front-end development using HTML, CSS, and JavaScript. I also explore creative design tools and modern web technologies to enhance the digital experience.</p>
+  </div>
+</section>
+
+<!-- RESUME SECTION -->
+<section class="resume">
+  <h2>My Resume</h2>
+  <p>You can view or download my resume using the button below.</p>
+  <a href="assets/resume.pdf" download>Download Resume</a>
+</section>
+
+<!-- PORTFOLIO SECTION -->
+<section class="portfolio">
+  <h2>My Projects</h2>
+  <div class="project">
+    <img src="ACT12_ANTOLIN/Screenshot 2025-10-21 203554.png" alt="Project 1">
+    <h3>Portfolio</h3>
+    <p><b>Languages:</b> HTML, CSS, and JavaScript</p>
+    <a href="https://joyceantolin.github.io" target="_blank">View on GitHub</a>
+  </div>
+
+  <div class="project">
+    <img src="ACT12_ANTOLIN/Screenshot 2025-10-21 203921.png" alt="Project 2">
+    <h3>Personal Website</h3>
+    <p><b>Languages:</b> HTML, CSS, JS</p>
+    <a href="https://joyceantolin.github.io" target="_blank">View on GitHub</a>
+  </div>
+</section>
+
+<!-- WORK EXPERIENCE SECTION -->
+<section class="work">
+  <h2>Work Experience</h2>
+  <div class="job">
+    <h4>Front-End Developer</h4>
+    <p><i>2025 – Present</i></p>
+    <p>Developed personal portfolios using HTML, CSS, and JavaScript. Focused on user experience, accessibility, and performance optimization.</p>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Joyce Marie B. Antolin | All Rights Reserved.</p>
+  <div class="social">
+    <a href="https://github.com/joyceantolin" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.facebook.com/joycemarieantolin" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="mailto:joycemarieantolin@gmail.com"><i class="fas fa-envelope"></i></a>
+  </div>
+</footer>
+
+<!-- SCROLL TO TOP BUTTON -->
+<button id="scrollTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) scrollBtn.classList.add('show');
+    else scrollBtn.classList.remove('show');
+  });
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery | Joyce Marie B. Antolin</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+
+  /* Paragraph justification */
+  .home p {
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: justify;
+    line-height: 1.6;
+  }
+
+    /* Scroll-to-top button */
+  #scrollTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+    background-color: #3b2f2f;
+    color: #d4b483;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+
+  #scrollTopBtn:hover {
+    background-color: #d4b483;
+    color: #3b2f2f;
+  }
+
+  #scrollTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+  
+  }
+/* Lightbox styles */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 10px;
+}
+
+.lightbox .prev, .lightbox .next, .lightbox .close {
+  position: absolute;
+  color: #d4b483;
+  font-size: 2em;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s;
+}
+
+.lightbox .prev:hover, .lightbox .next:hover, .lightbox .close:hover {
+  color: #fff;
+}
+
+.lightbox .prev {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox .next {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox .close {
+  top: 20px;
+  right: 30px;
+}
+</style>
+</head>
+<body>
+<header>
+  <nav>
+    <ul>
+      <li><a href="joyceantolin.github.io">Home</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+<button id="scrollTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+<section class="gallery">
+  <h2>My Gallery</h2>
+  <div class="gallery-container">
+    <img src="ACT12_ANTOLIN/1.jpg" alt="Picture 1">
+    <img src="ACT12_ANTOLIN/2.jpg" alt="Picture 2">
+    <img src="ACT12_ANTOLIN/3.jpg" alt="Picture 3">
+    <img src="ACT12_ANTOLIN/4.jpg" alt="Picture 4">
+    <img src="ACT12_ANTOLIN/5.jpg" alt="Picture 5">
+    <img src="ACT12_ANTOLIN/6.jpg" alt="Picture 6">
+    <img src="ACT12_ANTOLIN/7.jpg" alt="Picture 7">
+    <img src="ACT12_ANTOLIN/8.jpg" alt="Picture 8">
+    <img src="ACT12_ANTOLIN/9.jpg" alt="Picture 9">
+    <img src="ACT12_ANTOLIN/10.jpg" alt="Picture 10">
+    <img src="ACT12_ANTOLIN/11.jpg" alt="Picture 11">
+    <img src="ACT12_ANTOLIN/12.jpg" alt="Picture 12">
+    <img src="ACT12_ANTOLIN/13.jpg" alt="Picture 13">
+    <img src="ACT12_ANTOLIN/14.jpg" alt="Picture 14">
+    <img src="ACT12_ANTOLIN/15.jpg" alt="Picture 15">
+     <img src="ACT12_ANTOLIN/profile.jpg" alt="Picture 15">
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <span class="close">&times;</span>
+  <span class="prev"><i class="fas fa-chevron-left"></i></span>
+  <img src="" alt="Large Image">
+  <span class="next"><i class="fas fa-chevron-right"></i></span>
+</div>
+
+<footer>
+  <p>© 2025 Joyce Marie B. Antolin | All Rights Reserved.</p>
+  <div class="social">
+    <a href="https://github.com/joyceantolin" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.facebook.com/joycemarieantolin" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="mailto:joycemarieantolin@gmail.com"><i class="fas fa-envelope"></i></a>
+  </div>
+</footer>
+<script>
+  const scrollBtn = document.getElementById('scrollTopBtn');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+      scrollBtn.classList.add('show');
+    } else {
+      scrollBtn.classList.remove('show');
+    }
+  });
+
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
